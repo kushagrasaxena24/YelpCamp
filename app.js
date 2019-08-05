@@ -12,24 +12,23 @@ var express= require("express"),
 
 //	seedDB= require("./seeds");
 
-// mongoose.connect("mongodb+srv://kushagrasaxena:kushagrasaxena24@cluster0-b38ow.mongodb.net/test?retryWrites=true&w=majority",{
-// 	useNewUrlParser: true,a
-
-// 	useCreateIndex: true	
-// }).then(() => {
-// 	console.log("Connected to DB");
-// }).catch(err => {
-// 	console.log("Error", err.message);
-// });
+mongoose.connect("mongodb+srv://kushagrasaxena:kushagrasaxena24@cluster0-b38ow.mongodb.net/test?retryWrites=true&w=majority",{
+	useNewUrlParser: true,
+	useCreateIndex: true	
+}).then(() => {
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log("Error", err.message);
+});
 
 //requring routes
 var commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index");
 
-mongoose.connect("mongodb://localhost:27017/yelp-camp",{
-	useNewUrlParser: true
-});
+// mongoose.connect("mongodb://localhost:27017/yelp-camp",{
+// 	useNewUrlParser: true
+// });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+ "/public"));
